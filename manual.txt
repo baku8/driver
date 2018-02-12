@@ -1,0 +1,20 @@
+// lets firstly check if have the headers:
+ls /usr/src/linux-headers-$(uname -r)/include/linux/module.h
+apt-cache search linux-headers-$(uname -r)
+
+// if not, try install headers:
+sudo apt-get install linux-headers-generic
+
+// place both files (first_module.c & Makefile) to the same folder
+sudo make
+
+// insert below module to the kernel
+sudo insmod first_module.ko
+
+// output of the kernel module after add the module
+dmesg | tail -1
+
+// cleaning up module
+rmmod hello-1
+// output of the kernel module after remove the module
+dmesg | tail -1
