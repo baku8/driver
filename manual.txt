@@ -11,8 +11,11 @@ sudo make
 // insert below module to the kernel
 sudo insmod first_module.ko
 
-// output of the kernel module after add the module
+// If all goes well, you won’t see a thing. The printk function doesn’t output to the console but rather the kernel log. To see that, we’ll need // to run:
+
 dmesg | tail -1
+
+// You should see the “Hello, World!” 
 
 // cleaning up module
 rmmod hello-1
